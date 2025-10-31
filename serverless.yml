@@ -3,8 +3,9 @@ service: api-s3
 
 provider:
   name: aws
-  runtime: python3.13	
-  # Default memory size for functions (default: 256MB)
+  region: us-east-1           # recomendado
+  runtime: python3.13
+  endpointType: regional      # <- evita CloudFront
   memorySize: 256
   timeout: 20
   iam:
@@ -18,8 +19,9 @@ functions:
       - http:
           path: /s3/lista-buckets
           method: get
-          cors: true
-          integration: lambda
+          cors: true           # <- deja que el navegador llame luego
+          # SIN "integration"
+
   lista_objetos_bucket:
     handler: lista_objetos_bucket.lambda_handler
     events:
@@ -27,4 +29,4 @@ functions:
           path: /s3/bucket/lista-objetos
           method: post
           cors: true
-          integration: lambda
+          # SIN "integration"
