@@ -47,3 +47,13 @@ functions:
           method: post
           cors: true
           integration: lambda
+
+  # subir archivo:
+  subir_archivo:
+    handler: subir_archivo.lambda_handler
+    events:
+      - http:
+          path: /s3/archivo/subir
+          method: post
+          cors: true
+          integration: lambda
