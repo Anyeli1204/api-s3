@@ -1,10 +1,8 @@
 import boto3
 
 def lambda_handler(event, context):
-    # Entrada (json)
     nombre_bucket = event['body']['bucket']
 
-    # Proceso
     s3 = boto3.client('s3')
     region = s3.meta.region_name or 'us-east-1'
     params = {'Bucket': nombre_bucket}

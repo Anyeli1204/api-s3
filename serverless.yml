@@ -1,4 +1,4 @@
-org: pauloimb
+org: anyelitamara
 service: api-s3
 
 provider:
@@ -7,7 +7,7 @@ provider:
   memorySize: 256
   timeout: 20
   iam:
-    role: arn:aws:iam::670692919870:role/LabRole
+    role: arn:aws:iam::456183835700:role/LabRole
 
 functions:
   lista_buckets:
